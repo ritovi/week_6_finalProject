@@ -9,7 +9,9 @@
     "dev": "nodemon src/server",
     "test": "jest --detectOpenHandles",
     "pretest": "npm run migrate",
-    "migrate": "node ./src/tests/testMigrate"
+    "migrate": "node ./src/tests/testMigrate",
+    "posttest" : "node ./src/tests/postTest.js"
+    
   },
   "keywords": [],
   "author": "",

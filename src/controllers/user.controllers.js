@@ -17,7 +17,7 @@ const getOne = catchError(async(req, res) => {
     const { id } = req.params;
     const result = await User.findByPk(id);
     if(!result) return res.sendStatus(404);
-    return res.status(201).json(result);
+    return res.json(result);
 });
 
 const remove = catchError(async(req, res) => {
@@ -34,7 +34,7 @@ const update = catchError(async(req, res) => {
         { where: {id}, returning: true }
     );
     if(result[0] === 0) return res.sendStatus(404);
-    return res.status(201).json(result[1][0]);
+    return res.json(result[1][0]);
 });
 
 
@@ -53,7 +53,7 @@ const login =catchError(async(req,res)=>{
         {user}, process.env.SECRET_TOKEN, {expiresIn: "10m"}
     )
 
-    return res.status(201).json({user, token});
+    return res.json({user, token});
 })
 
 module.exports = {
