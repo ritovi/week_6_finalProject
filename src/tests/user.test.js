@@ -102,14 +102,14 @@ test ("GET --> BASE_URL should return status code 200",  async()=>{
 
 })
 
-test("GET/:id --> BASE_URL/:id  should return status code 201", async()=>{
-   const res= await request(app)
-      .get(`${BASE_URL}/${userId}`)
-      .set("authorization", `Bearer ${token}`)
+// test("GET/:id --> BASE_URL/:id  should return status code 201", async()=>{
+//    const res= await request(app)
+//       .get(`${BASE_URL}/${userId}`)
+//       .set("authorization", `Bearer ${token}`)
 
-  expect(res.status).toBe(200);
-  expect(res.body).toBeDefined();
-})
+//   expect(res.status).toBe(200);
+//   expect(res.body).toBeDefined();
+// })
 
 test("PUT --> BASE_URL/:id should return status code 201", async()=>{
   const res = await request(app)

@@ -5,11 +5,11 @@
   "main": "index.js",
   "bin": "./bin/cli.js",
   "scripts": {
+    "migrate": "node ./src/tests/testMigrate",
     "start": "node src/server",
     "dev": "nodemon src/server",
     "test": "jest --detectOpenHandles",
     "pretest": "npm run migrate",
-    "migrate": "node ./src/tests/testMigrate",
     "posttest" : "node ./src/tests/postTest.js"
     
   },

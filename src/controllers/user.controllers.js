@@ -13,13 +13,6 @@ const create = catchError(async(req, res) => {
     return res.status(201).json(result);
 });
 
-const getOne = catchError(async(req, res) => {
-    const { id } = req.params;
-    const result = await User.findByPk(id);
-    if(!result) return res.sendStatus(404);
-    return res.json(result);
-});
-
 const remove = catchError(async(req, res) => {
     const { id } = req.params;
     const result = await User.destroy({ where: {id} });
@@ -50,7 +43,7 @@ const login =catchError(async(req,res)=>{
     if(!rightPassword)   return res.status(401).json({error : "incorrect credentials"});
 
     const token  = jwt.sign(
-        {user}, process.env.SECRET_TOKEN, {expiresIn: "10m"}
+        {user}, process.env.SECRET_TOKEN, {expiresIn: "1d"}
     )
 
     return res.json({user, token});
@@ -59,7 +52,6 @@ const login =catchError(async(req,res)=>{
 module.exports = {
     getAll,
     create,
-    getOne,
     remove,
     update,
     login
