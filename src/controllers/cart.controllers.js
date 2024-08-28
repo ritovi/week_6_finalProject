@@ -7,7 +7,7 @@ const getAll = catchError(async(req, res) => {
     const userId = req.user.id;
     
     const results = await Cart.findAll({
-        where : userId,
+        where : {userId},
         include : [
             {
                 model : Product,
@@ -36,7 +36,7 @@ const getOne = catchError(async(req, res) => {
     const userId = req.user.id;
 
     const result = await Cart.findByPk(id, {
-        where : userId,
+        where : {userId},
         include : [
             {
                 model : Product,

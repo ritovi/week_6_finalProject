@@ -8,7 +8,7 @@ const getAll = catchError(async(req, res) => {
     const userId = req.user.id;
     
     const results = await Purchase.findAll({
-        where : userId,
+        where : {userId},
         include : [
             {
                 model : Product,
